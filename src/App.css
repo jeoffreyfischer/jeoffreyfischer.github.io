@@ -219,30 +219,44 @@
   justify-content: center;
 }
 
-/* Curved label SVG – fills the button so the arc aligns with the quarter */
-.cv-quarter-arc-svg {
+/* Font Awesome icon in each quarter – transparent background.
+   Positioned so the icon center sits on the midline between inner ring and outer circle. */
+.cv-quarter-icon {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #0f172a; /* same as page (slate-900) */
+  font-size: clamp(3.25rem, 13vmin, 6.5rem);
+  transition: opacity 0.4s ease, font-size 0.35s ease;
+  /* translate(-50%, -50%) so the icon’s center is the positioning reference */
+  transform: translate(-50%, -50%);
+}
+
+.cv-quarter-icon-hidden {
+  opacity: 0;
   pointer-events: none;
 }
 
-.cv-quarter-arc-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  fill: currentColor;
-}
+/* Midline between inner circle (ring outer edge = 55% diameter, radius 27.5%) and outer circle (50% radius). Midline radius = (27.5 + 50) / 2 = 38.75% of square.
+   In quarter coords (quarter = 50% of square), that’s ~54.8% from quarter corner along diagonal. */
+.cv-quarter-tl .cv-quarter-icon { left: 45.2%; top: 45.2%; }
+.cv-quarter-tr .cv-quarter-icon { left: 54.8%; top: 45.2%; }
+.cv-quarter-br .cv-quarter-icon { left: 54.8%; top: 54.8%; }
+.cv-quarter-bl .cv-quarter-icon { left: 45.2%; top: 54.8%; }
 
-.cv-quarter-arc-text-tl { color: #1e3a8a; }
-.cv-quarter-arc-text-tr { color: #450a0a; }
-.cv-quarter-arc-text-br { color: #422006; }
-.cv-quarter-arc-text-bl { color: #052e16; }
+/* When circle shrinks (section active), scale icons down with the buttons (circle → 36%) */
+.cv-circle-active .cv-quarter-icon {
+  font-size: clamp(1.2rem, 4.7vmin, 2.4rem);
+}
 
 .cv-quarter:hover {
   filter: brightness(1.1);
+}
+
+.cv-quarter:hover .cv-quarter-icon {
+  color: #fff;
 }
 
 .cv-quarter:active {
@@ -260,14 +274,6 @@
 .cv-quarter-active.cv-quarter-br { background-color: transparent !important; }
 .cv-quarter-active.cv-quarter-bl { background-color: transparent !important; }
 
-.cv-quarter-arc-svg {
-  transition: opacity 0.4s ease;
-}
-
-.cv-quarter-arc-svg-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
 
 /* Top-left quarter */
 .cv-quarter-tl {
@@ -372,6 +378,20 @@
 
 .cv-center-home-btn:active {
   transform: scale(0.98);
+}
+
+/* Home icon: same behaviour as quarter icons – page color by default, white on hover */
+.cv-center-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  font-size: clamp(1.5rem, 4vmin, 2.25rem);
+  transition: color 0.2s ease;
+}
+
+.cv-center-home-btn:hover .cv-center-icon {
+  color: #fff;
 }
 
 .cv-center-text {

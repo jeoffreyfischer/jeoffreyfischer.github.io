@@ -2,10 +2,10 @@ import { useState } from 'react';
 import './App.css';
 
 const SECTIONS = [
-  { id: 'work', label: 'Career', quarterClass: 'cv-quarter-tl', cornerClass: 'cv-corner-tl', color: '#f59e0b', colorFade: '#fef3c7', colorHover: '#d97706', textColor: '#1e3a8a' },
-  { id: 'education', label: 'Education', quarterClass: 'cv-quarter-tr', cornerClass: 'cv-corner-tr', color: '#10b981', colorFade: '#d1fae5', colorHover: '#059669', textColor: '#450a0a' },
-  { id: 'public', label: 'Media', quarterClass: 'cv-quarter-br', cornerClass: 'cv-corner-br', color: '#8b5cf6', colorFade: '#ede9fe', colorHover: '#7c3aed', textColor: '#422006' },
-  { id: 'interests', label: 'Hobbies', quarterClass: 'cv-quarter-bl', cornerClass: 'cv-corner-bl', color: '#f43f5e', colorFade: '#ffe4e6', colorHover: '#e11d48', textColor: '#052e16' },
+  { id: 'work', label: 'Career', iconClass: 'fa-solid fa-briefcase', quarterClass: 'cv-quarter-tl', cornerClass: 'cv-corner-tl', color: '#f59e0b', colorFade: '#fef3c7', colorHover: '#d97706', textColor: '#1e3a8a' },
+  { id: 'education', label: 'Education', iconClass: 'fa-solid fa-book', quarterClass: 'cv-quarter-tr', cornerClass: 'cv-corner-tr', color: '#10b981', colorFade: '#d1fae5', colorHover: '#059669', textColor: '#450a0a' },
+  { id: 'public', label: 'Media', iconClass: 'fa-brands fa-youtube', quarterClass: 'cv-quarter-br', cornerClass: 'cv-corner-br', color: '#8b5cf6', colorFade: '#ede9fe', colorHover: '#7c3aed', textColor: '#422006' },
+  { id: 'interests', label: 'Hobbies', iconClass: 'fa-solid fa-guitar', quarterClass: 'cv-quarter-bl', cornerClass: 'cv-corner-bl', color: '#f43f5e', colorFade: '#ffe4e6', colorHover: '#e11d48', textColor: '#052e16' },
 ];
 
 function App() {
@@ -66,66 +66,22 @@ function App() {
           className={`cv-circle ${activeSection ? `cv-circle-active cv-circle-active-${activeSection.quarterClass}` : ''}`}
         >
         {/* Four quarter-circle buttons forming the outer circle */}
-        <button
-          type="button"
-          className={`cv-quarter ${SECTIONS[0].quarterClass} ${activeSection?.id === SECTIONS[0].id ? 'cv-quarter-active' : ''}`}
-          onClick={() => setActiveSection(SECTIONS[0])}
-          aria-label={SECTIONS[0].label}
-        >
-          <svg className={`cv-quarter-arc-svg ${activeSection?.id === SECTIONS[0].id ? 'cv-quarter-arc-svg-hidden' : ''}`} viewBox="0 0 50 50" aria-hidden="true">
-            <defs>
-              <path id="arc-tl" d="M 11.25 50 A 38.75 38.75 0 0 1 50 11.25" />
-            </defs>
-            <text className="cv-quarter-arc-text cv-quarter-arc-text-tl" dominantBaseline="middle">
-              <textPath href="#arc-tl" startOffset="50%" textAnchor="middle">{SECTIONS[0].label}</textPath>
-            </text>
-          </svg>
-        </button>
-        <button
-          type="button"
-          className={`cv-quarter ${SECTIONS[1].quarterClass} ${activeSection?.id === SECTIONS[1].id ? 'cv-quarter-active' : ''}`}
-          onClick={() => setActiveSection(SECTIONS[1])}
-          aria-label={SECTIONS[1].label}
-        >
-          <svg className={`cv-quarter-arc-svg ${activeSection?.id === SECTIONS[1].id ? 'cv-quarter-arc-svg-hidden' : ''}`} viewBox="0 0 50 50" aria-hidden="true">
-            <defs>
-              <path id="arc-tr" d="M 0 11.25 A 38.75 38.75 0 0 1 38.75 50" />
-            </defs>
-            <text className="cv-quarter-arc-text cv-quarter-arc-text-tr" dominantBaseline="middle">
-              <textPath href="#arc-tr" startOffset="50%" textAnchor="middle">{SECTIONS[1].label}</textPath>
-            </text>
-          </svg>
-        </button>
-        <button
-          type="button"
-          className={`cv-quarter ${SECTIONS[2].quarterClass} ${activeSection?.id === SECTIONS[2].id ? 'cv-quarter-active' : ''}`}
-          onClick={() => setActiveSection(SECTIONS[2])}
-          aria-label={SECTIONS[2].label}
-        >
-          <svg className={`cv-quarter-arc-svg ${activeSection?.id === SECTIONS[2].id ? 'cv-quarter-arc-svg-hidden' : ''}`} viewBox="0 0 50 50" aria-hidden="true">
-            <defs>
-              <path id="arc-br" d="M 38.75 0 A 38.75 38.75 0 0 1 0 38.75" />
-            </defs>
-            <text className="cv-quarter-arc-text cv-quarter-arc-text-br" dominantBaseline="middle">
-              <textPath href="#arc-br" startOffset="50%" textAnchor="middle">{SECTIONS[2].label}</textPath>
-            </text>
-          </svg>
-        </button>
-        <button
-          type="button"
-          className={`cv-quarter ${SECTIONS[3].quarterClass} ${activeSection?.id === SECTIONS[3].id ? 'cv-quarter-active' : ''}`}
-          onClick={() => setActiveSection(SECTIONS[3])}
-          aria-label={SECTIONS[3].label}
-        >
-          <svg className={`cv-quarter-arc-svg ${activeSection?.id === SECTIONS[3].id ? 'cv-quarter-arc-svg-hidden' : ''}`} viewBox="0 0 50 50" aria-hidden="true">
-            <defs>
-              <path id="arc-bl" d="M 50 38.75 A 38.75 38.75 0 0 1 11.25 0" />
-            </defs>
-            <text className="cv-quarter-arc-text cv-quarter-arc-text-bl" dominantBaseline="middle">
-              <textPath href="#arc-bl" startOffset="50%" textAnchor="middle">{SECTIONS[3].label}</textPath>
-            </text>
-          </svg>
-        </button>
+        {SECTIONS.map((section) => (
+          <button
+            key={section.id}
+            type="button"
+            className={`cv-quarter ${section.quarterClass} ${activeSection?.id === section.id ? 'cv-quarter-active' : ''}`}
+            onClick={() => setActiveSection(section)}
+            aria-label={section.label}
+          >
+            <span
+              className={`cv-quarter-icon ${activeSection?.id === section.id ? 'cv-quarter-icon-hidden' : ''}`}
+              aria-hidden="true"
+            >
+              <i className={section.iconClass} />
+            </span>
+          </button>
+        ))}
 
         {/* Ring: page-colored donut so gap between small center and quarter buttons matches page background */}
         <div className="cv-center-ring" aria-hidden="true" />
@@ -139,7 +95,9 @@ function App() {
               onClick={(e) => { e.stopPropagation(); setActiveSection(null); }}
               aria-label="Back to home"
             >
-              <span className="cv-center-text">Home</span>
+              <span className="cv-center-icon" aria-hidden="true">
+                <i className="fa-solid fa-house" />
+              </span>
             </button>
           ) : (
             <div className="cv-center-inner">
