@@ -66,11 +66,11 @@
   padding: 0.5rem;
 }
 
-/* Position label toward the corner for each quadrant */
-.cv-corner-tl .cv-corner-content { align-items: flex-start; justify-content: flex-start; padding: 12%; }
-.cv-corner-tr .cv-corner-content { align-items: flex-start; justify-content: flex-end; padding: 12%; }
-.cv-corner-br .cv-corner-content { align-items: flex-end; justify-content: flex-end; padding: 12%; transform: scale(0.5) rotate(-180deg); }
-.cv-corner-bl .cv-corner-content { align-items: flex-end; justify-content: flex-start; padding: 12%; }
+/* Position label closer to the square corner in each quadrant */
+.cv-corner-tl .cv-corner-content { align-items: flex-start; justify-content: flex-start; padding: 5%; }
+.cv-corner-tr .cv-corner-content { align-items: flex-start; justify-content: flex-end; padding: 5%; }
+.cv-corner-br .cv-corner-content { align-items: flex-end; justify-content: flex-end; padding: 5%; transform: scale(0.5) rotate(-180deg); }
+.cv-corner-bl .cv-corner-content { align-items: flex-end; justify-content: flex-start; padding: 5%; }
 
 .cv-corner-active.cv-corner-br .cv-corner-content { transform: scale(1) rotate(-180deg); }
 
