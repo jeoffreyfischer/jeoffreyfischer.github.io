@@ -46,38 +46,27 @@
   justify-content: center;
 }
 
-/* Button label – in the middle of the visible quarter (between center circle and outer edge) */
-.cv-quarter-label {
+/* Curved label SVG – fills the button so the arc aligns with the quarter */
+.cv-quarter-arc-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.cv-quarter-arc-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
-  font-size: clamp(0.95rem, 3.5vmin, 1.5rem);
-  line-height: 1.2;
+  font-size: 4px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  max-width: 38%;
-  text-align: center;
+  fill: currentColor;
 }
 
-/* Shift label toward outer corner of each quarter, close to center but still in the visible band (outside the 55% center circle) */
-.cv-quarter-label-tl {
-  color: #1e3a8a; /* blue – complement to amber */
-  transform: translate(-14%, -14%);
-}
-
-.cv-quarter-label-tr {
-  color: #450a0a; /* deep red – complement to emerald */
-  transform: translate(14%, -14%);
-}
-
-.cv-quarter-label-br {
-  color: #422006; /* dark amber – complement to violet */
-  transform: translate(14%, 14%);
-}
-
-.cv-quarter-label-bl {
-  color: #052e16; /* dark green – complement to rose */
-  transform: translate(-14%, 14%);
-}
+.cv-quarter-arc-text-tl { color: #1e3a8a; }
+.cv-quarter-arc-text-tr { color: #450a0a; }
+.cv-quarter-arc-text-br { color: #422006; }
+.cv-quarter-arc-text-bl { color: #052e16; }
 
 .cv-quarter:hover {
   filter: brightness(1.1);
