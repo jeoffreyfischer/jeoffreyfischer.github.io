@@ -127,6 +127,9 @@ function App() {
           </svg>
         </button>
 
+        {/* Ring: page-colored donut so gap between small center and quarter buttons matches page background */}
+        <div className="cv-center-ring" aria-hidden="true" />
+
         {/* Center circle: "Home" button when a section is active, else placeholder text */}
         <div className="cv-center">
           {activeSection ? (
