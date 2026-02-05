@@ -157,6 +157,7 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  pointer-events: auto; /* capture clicks so the center doesn’t activate quarter buttons */
 }
 
 .cv-center-text {
