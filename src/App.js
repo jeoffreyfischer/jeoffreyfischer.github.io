@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 const SECTIONS = [
@@ -10,16 +10,9 @@ const SECTIONS = [
 
 function App() {
   const [activeSection, setActiveSection] = useState(null);
-  const squareRef = useRef(null);
-
-  const handlePageClick = (e) => {
-    if (squareRef.current && !squareRef.current.contains(e.target)) {
-      setActiveSection(null);
-    }
-  };
 
   return (
-    <div className="cv-page bg-slate-900" onClick={handlePageClick}>
+    <div className="cv-page bg-slate-900">
       {/* SVG clipPaths for corner gap shapes (objectBoundingBox = 0–1 coords) */}
       <svg width="0" height="0" aria-hidden="true">
         <defs>
@@ -38,7 +31,7 @@ function App() {
           </clipPath>
         </defs>
       </svg>
-      <div className="cv-square" ref={squareRef}>
+      <div className="cv-square">
         {/* Expanded quarter when a section is active – grows from clicked corner */}
         {activeSection && (
           <div
