@@ -180,11 +180,12 @@
   transform: translate(30%, -30%) scale(0.36);
 }
 
-/* Quarter-circle buttons – each is half the size, one corner rounded to form a quarter circle */
+/* Quarter-circle buttons – each is half the size, one corner rounded to form a quarter circle.
+   Slightly inset to create spacing along the connecting lines (center and diameters). */
 .cv-quarter {
   position: absolute;
-  width: 50%;
-  height: 50%;
+  width: 48%;
+  height: 48%;
   border: none;
   cursor: pointer;
   transition: filter 0.2s, transform 0.1s, background-color 0.4s ease;
@@ -255,8 +256,8 @@
 
 /* Top-left quarter */
 .cv-quarter-tl {
-  top: 0;
-  left: 0;
+  top: 1%;
+  left: 1%;
   border-radius: 100% 0 0 0;
   background-color: #f59e0b; /* amber-500 */
 }
@@ -267,8 +268,8 @@
 
 /* Top-right quarter */
 .cv-quarter-tr {
-  top: 0;
-  right: 0;
+  top: 1%;
+  right: 1%;
   border-radius: 0 100% 0 0;
   background-color: #10b981; /* emerald-500 */
 }
@@ -279,8 +280,8 @@
 
 /* Bottom-right quarter */
 .cv-quarter-br {
-  bottom: 0;
-  right: 0;
+  bottom: 1%;
+  right: 1%;
   border-radius: 0 0 100% 0;
   background-color: #8b5cf6; /* violet-500 */
 }
@@ -291,8 +292,8 @@
 
 /* Bottom-left quarter */
 .cv-quarter-bl {
-  bottom: 0;
-  left: 0;
+  bottom: 1%;
+  left: 1%;
   border-radius: 0 0 0 100%;
   background-color: #f43f5e; /* rose-500 */
 }
