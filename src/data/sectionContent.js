@@ -3,7 +3,7 @@
  * Bold stacks and AI tools for recruiter visibility.
  */
 
-const BOLD_TERMS = ['.NET', 'Angular', 'Cursor', 'Matlab', 'Scrum', 'Azure'];
+const BOLD_TERMS = ['.NET', 'Angular', 'Cursor', 'Matlab', 'Scrum', 'Azure', 'Power Apps'];
 
 /** Wraps matching terms in <strong> */
 export function boldTerms(text) {
@@ -26,20 +26,21 @@ export const CAREER_CONTENT = {
   items: [
     {
       role: 'Software Engineer',
-      company: 'SSW',
+      company: 'SSW, Sydney',
       location: 'Sydney, Australia',
       period: '2023 – Present',
       highlights: [
         'Backend: .NET, EF Core, SQL Server',
         'Frontend: Angular, React, Next.js',
-        'AI tools: Cursor, ChatGPT',
         'Cloud: Azure',
+        'Microsoft Power Platform: Power Apps',
+        'AI tools: Cursor, ChatGPT',
         'Agile: Scrum',
       ],
     },
     {
       role: 'Research Associate',
-      company: 'UNSW Aerospace',
+      company: 'UNSW, Sydney',
       location: 'Sydney, Australia',
       period: '2015 – 2022',
       highlights: [
