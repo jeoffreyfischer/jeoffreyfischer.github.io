@@ -103,10 +103,55 @@ function MediaContent() {
   );
 }
 
+const YOUTUBE_SHORT_ID = 'WS0HWQtoBv8';
+const YOUTUBE_SHORT_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_SHORT_ID}`;
+
+const HOBBIES_IMAGES = [
+  { src: '/images/2025-sydney-half-marathon.png', alt: '2025 Sydney Half Marathon' },
+];
+
+function HobbiesContent() {
+  const baseUrl = process.env.PUBLIC_URL || '';
+  return (
+    <div className="cv-section-content cv-hobbies">
+      <h2 className="cv-hobbies-section-title">Hobbies</h2>
+      <div className="cv-hobbies-media">
+        <div className="cv-hobbies-item">
+          <div className="cv-hobbies-images">
+            {HOBBIES_IMAGES.map((img, i) => (
+              <img
+                key={i}
+                src={baseUrl + img.src}
+                alt={img.alt}
+                className="cv-hobbies-img"
+              />
+            ))}
+          </div>
+          <p className="cv-hobbies-label">Fitness</p>
+        </div>
+        <div className="cv-hobbies-item">
+          <p className="cv-hobbies-label">Guitar</p>
+          <div className="cv-hobbies-embed-wrapper">
+          <iframe
+            className="cv-hobbies-embed"
+            src={YOUTUBE_SHORT_EMBED_URL}
+            title="YouTube Short"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SectionContent({ sectionId }) {
   if (sectionId === 'work') return <CareerContent />;
   if (sectionId === 'education') return <EducationContent />;
   if (sectionId === 'public') return <MediaContent />;
+  if (sectionId === 'interests') return <HobbiesContent />;
   return null;
 }
 

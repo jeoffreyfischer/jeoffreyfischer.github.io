@@ -244,7 +244,8 @@
 /* Section titles in content – hidden on desktop (corner shows them), visible on mobile */
 .cv-career-section-title,
 .cv-edu-section-title,
-.cv-media-section-title {
+.cv-media-section-title,
+.cv-hobbies-section-title {
   display: none;
 }
 
@@ -341,6 +342,87 @@
 }
 
 .cv-media-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+/* Hobbies section – photos + YouTube Short embed */
+.cv-hobbies.cv-section-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  pointer-events: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-hobbies-section-title {
+  display: none;
+}
+
+.cv-hobbies-media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 3vmin, 2rem);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cv-hobbies-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cv-hobbies-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.65rem, 1.8vmin, 0.85rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: var(--corner-text);
+  opacity: 0.95;
+}
+
+.cv-hobbies-item .cv-hobbies-label:first-child {
+  margin: 0 0 0.5em 0;
+}
+
+.cv-hobbies-item .cv-hobbies-label:last-child {
+  margin: 0.5em 0 0 0;
+}
+
+.cv-hobbies-images {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -0.5rem;
+}
+
+.cv-hobbies-img {
+  width: clamp(7rem, 28vmin, 18rem);
+  height: auto;
+  max-height: clamp(12rem, 50vmin, 32rem);
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.cv-hobbies-embed-wrapper {
+  position: relative;
+  width: clamp(7rem, 28vmin, 18rem);
+  aspect-ratio: 9 / 16;
+  flex-shrink: 0;
+}
+
+.cv-hobbies-embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -726,16 +808,22 @@
     min-height: auto;
   }
 
-  /* On mobile: hide corner labels for Career, Education, Media; show titles in content instead */
+  /* On mobile: hide corner labels for Career, Education, Media, Hobbies; show titles in content */
   .cv-corner-tl.cv-corner-active .cv-corner-content,
   .cv-corner-tr.cv-corner-active .cv-corner-content,
-  .cv-corner-br.cv-corner-active .cv-corner-content {
+  .cv-corner-br.cv-corner-active .cv-corner-content,
+  .cv-corner-bl.cv-corner-active .cv-corner-content {
     display: none;
   }
 
   .cv-career-section-title,
   .cv-edu-section-title,
-  .cv-media-section-title {
+  .cv-media-section-title,
+  .cv-hobbies.cv-section-content {
+    justify-content: flex-start;
+  }
+
+  .cv-hobbies-section-title {
     display: block;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
