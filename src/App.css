@@ -87,6 +87,7 @@
   justify-content: space-between;
   gap: 0.1em;
   margin-top: 0.5em;
+  padding-bottom: 1.2em;
 }
 
 .cv-education.cv-section-content {
@@ -119,16 +120,17 @@
   flex-shrink: 0;
 }
 
-.cv-job:first-child {
-  margin-top: 0.6em;
+.cv-job:first-of-type {
+  margin-top: 2em;
 }
 
-.cv-job:nth-child(2) {
+.cv-job:nth-of-type(2) {
   margin-top: 0.3em;
 }
 
-.cv-job:last-child {
+.cv-job:last-of-type {
   margin-bottom: 0.3em;
+  padding-bottom: 1.2em;
 }
 
 .cv-job-role {
@@ -217,7 +219,7 @@
 .cv-certifications {
   margin-top: -1.2em;
   padding-top: 0.2em;
-  padding-bottom: 2.5em;
+  padding-bottom: 1.2em;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
 }
@@ -239,7 +241,8 @@
   line-height: 1.6;
 }
 
-/* Education title in content – hidden on desktop (corner shows it), visible on mobile */
+/* Section titles in content – hidden on desktop (corner shows them), visible on mobile */
+.cv-career-section-title,
 .cv-edu-section-title {
   display: none;
 }
@@ -590,10 +593,8 @@
     justify-content: flex-start;
   }
 
-  /* Extra top padding when corner label is at top (Career, Education) – reduced for Education (title in content) */
-  .cv-expanded-cv-quarter-tl .cv-expanded-content {
-    padding-top: 14%;
-  }
+  /* Reduced top padding – title shown in content for both Career and Education */
+  .cv-expanded-cv-quarter-tl .cv-expanded-content,
   .cv-expanded-cv-quarter-tr .cv-expanded-content {
     padding-top: 6%;
   }
@@ -605,11 +606,13 @@
     min-height: auto;
   }
 
-  /* On mobile: hide corner label for Education, show title in content instead */
+  /* On mobile: hide corner labels for Career and Education, show titles in content instead */
+  .cv-corner-tl.cv-corner-active .cv-corner-content,
   .cv-corner-tr.cv-corner-active .cv-corner-content {
     display: none;
   }
 
+  .cv-career-section-title,
   .cv-edu-section-title {
     display: block;
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -621,17 +624,12 @@
     text-align: left;
   }
 
-  /* Move labels toward buttons: Career right, Media up-left, Hobbies up-right */
-  .cv-corner-tl .cv-corner-content,
+  /* Move labels toward buttons: Media up-left, Hobbies up-right (Career/Education use in-content titles) */
   .cv-corner-br .cv-corner-content,
   .cv-corner-bl .cv-corner-content {
     justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
-  }
-  .cv-corner-tl .cv-corner-content {
-    left: 22%;
-    right: auto;
   }
   .cv-corner-br .cv-corner-content {
     left: 22%;
@@ -693,6 +691,15 @@
     min-width: 0;
   }
 
+  .cv-job:first-of-type {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  .cv-job:nth-of-type(2) {
+    margin-top: 0.5em;
+  }
+
   .cv-edu-item:first-of-type {
     margin-top: 0;
     margin-bottom: 0.5em;
@@ -704,6 +711,6 @@
 
   .cv-certifications {
     margin-top: 0.5em;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
   }
 }

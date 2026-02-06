@@ -15,6 +15,7 @@ function TextWithBold({ text }) {
 function CareerContent() {
   return (
     <div className="cv-section-content cv-career">
+      <h2 className="cv-career-section-title">Career</h2>
       {CAREER_CONTENT.items.map((job, i) => (
         <article key={i} className="cv-job">
           <div className="cv-job-role">{job.role}</div>
