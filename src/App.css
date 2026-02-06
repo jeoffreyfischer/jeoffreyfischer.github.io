@@ -212,7 +212,7 @@
   background: transparent;
   color: var(--color-icon-default);
   font-size: clamp(3.25rem, 13vmin, 6.5rem);
-  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), font-size 2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), color 1.2s ease;
   /* translate(-50%, -50%) so the icon’s center is the positioning reference */
   transform: translate(-50%, -50%);
 }
@@ -228,11 +228,6 @@
 .cv-quarter-tr .cv-quarter-icon { left: 54.8%; top: 45.2%; }
 .cv-quarter-br .cv-quarter-icon { left: 54.8%; top: 54.8%; }
 .cv-quarter-bl .cv-quarter-icon { left: 45.2%; top: 54.8%; }
-
-/* When circle shrinks (section active), scale icons down with the buttons (circle → 36%) */
-.cv-circle-active .cv-quarter-icon {
-  font-size: clamp(1.2rem, 4.7vmin, 2.4rem);
-}
 
 .cv-quarter:hover {
   filter: brightness(1.1);
