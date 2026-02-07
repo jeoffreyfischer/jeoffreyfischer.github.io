@@ -57,7 +57,7 @@ function EducationContent() {
 }
 
 const YOUTUBE_PLAYLIST_ID = 'PLpiOR7CBNvlqbUE95zfRuNDodbZI3aEJW';
-const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/videoseries?list=${YOUTUBE_PLAYLIST_ID}&index=3`;
+const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/videoseries?list=${YOUTUBE_PLAYLIST_ID}&index=3&autoplay=1`;
 
 const MEDIA_LINKS = [
   { label: 'GitHub', href: 'https://github.com/jeoffreyfischer', icon: 'fa-brands fa-github' },
@@ -104,7 +104,7 @@ function MediaContent() {
 }
 
 const YOUTUBE_SHORT_ID = 'WS0HWQtoBv8';
-const YOUTUBE_SHORT_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_SHORT_ID}`;
+const YOUTUBE_SHORT_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_SHORT_ID}?autoplay=1`;
 
 const HOBBIES_IMAGES = [
   { src: '/images/2025-sydney-half-marathon.png', alt: '2025 Sydney Half Marathon' },
